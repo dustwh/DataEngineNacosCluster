@@ -12,6 +12,7 @@ public class UserController {
     @Resource
     private CommonConfig config;
 
+
     @GetMapping("/test")
     public String test() {
         return config.getUsername() + ", " + config.getTimeout() + ", " + config.getPort();

@@ -12,6 +12,6 @@ public class ConsumerController {
 
     @GetMapping(value = "/test")
     public String echo() {
-        return restTemplate.getForObject("http://test/test", String.class);
+        return restTemplate.getForObject("http://provider/test", String.class);
     }
 }
