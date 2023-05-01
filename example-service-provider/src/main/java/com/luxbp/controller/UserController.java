@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 @RestController
 public class UserController {
 
@@ -23,4 +25,15 @@ public class UserController {
     public String testWithUrlParam(@PathVariable("name") String name) {
         return config.getUsername() + ", " + config.getTimeout() + ", " + config.getPort() + ", " + name;
     }
+
+    @GetMapping("/testTimeOut/{name}")
+    public String testTimeOutWithUrlParam(@PathVariable("name") String name) throws InterruptedException {
+        //this should run
+        //TimeUnit.SECONDS.sleep(9);
+        //this should faild
+        TimeUnit.SECONDS.sleep(20);
+        return config.getUsername() + ", " + config.getTimeout() + ", " + config.getPort() + ", " + name;
+    }
+
+
 }
