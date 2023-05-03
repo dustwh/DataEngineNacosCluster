@@ -1,6 +1,6 @@
 package com.luxbp.controller;
 
-import com.luxbp.service.ExampleFeignService;
+import com.luxbp.service.feignService.ExampleFeignService;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +28,7 @@ public class ConsumerController {
     }
 
     @RequestMapping("/testFeignCallingWithTimeOut")
-    public String FeignConsumerTimeout(@RequestParam String name) {
-        return exampleFeignService.callWithTimeOut(name);
+    public String FeignConsumerTimeout(@RequestParam int interval) {
+        return exampleFeignService.callWithTimeOut(interval);
     }
 }

@@ -10,6 +10,7 @@
         <module>example-service-provider2</module>
         <module>example-service-provider3</module>
         <module>example-service-consumer</module>
+        <module>application-gateway</module>
     </modules>
 
     <parent>

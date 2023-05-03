@@ -1,8 +1,7 @@
 package com.luxbp.controller;
 
+import com.luxbp.config.CommonConfig;
 import jakarta.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,12 +25,13 @@ public class UserController {
         return config.getUsername() + ", " + config.getTimeout() + ", " + config.getPort() + ", " + name;
     }
 
-    @GetMapping("/testTimeOut/{name}")
-    public String testTimeOutWithUrlParam(@PathVariable("name") String name) throws InterruptedException {
+    @GetMapping("/testTimeOut/{interval}")
+    public String testTimeOutWithUrlParam(@PathVariable("interval") int interval) throws InterruptedException {
         //this should run
         //TimeUnit.SECONDS.sleep(9);
         //this should faild
-        TimeUnit.SECONDS.sleep(20);
-        return config.getUsername() + ", " + config.getTimeout() + ", " + config.getPort() + ", " + name;
+//        TimeUnit.SECONDS.sleep(1);
+        Thread.sleep(interval);
+        return config.getUsername() + ", " + config.getTimeout() + ", " + config.getPort() + ", " + interval;
     }
 }
