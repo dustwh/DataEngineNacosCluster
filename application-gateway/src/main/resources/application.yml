@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: read
+          uri: http://consumer
+          predicates:
+            - Path=/to-read
+#            - Method=GET
+        - id: test
+          uri: http://consumer
+          predicates:
+            - Path=/test
+#            - Method=GET
+        - id: testFeignCalling
+          uri: http://consumer
+          predicates:
+            - Path=/testFeignCalling
+#            - Method=GET
+        - id: testFeignCallingWithTimeOut
+          uri: http://consumer
+          predicates:
+            - Path=/testFeignCallingWithTimeOut
+#            - Method=GET
