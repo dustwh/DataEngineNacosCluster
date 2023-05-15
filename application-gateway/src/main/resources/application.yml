@@ -6,22 +6,22 @@ spring:
           enabled: true
       routes:
         - id: read
-          uri: http://consumer
+          uri: http://localhost:8089
           predicates:
             - Path=/to-read
 #            - Method=GET
         - id: test
-          uri: http://consumer
+          uri: http://localhost:8089
           predicates:
             - Path=/test
 #            - Method=GET
         - id: testFeignCalling
-          uri: http://consumer
+          uri: http://localhost:8089
           predicates:
             - Path=/testFeignCalling
 #            - Method=GET
         - id: testFeignCallingWithTimeOut
-          uri: http://consumer
+          uri: http://localhost:8089
           predicates:
             - Path=/testFeignCallingWithTimeOut
 #            - Method=GET
